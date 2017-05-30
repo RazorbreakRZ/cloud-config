@@ -1,5 +1,5 @@
 spring:
   application:
-    name: sign
+    name: agent
 server:
-  port: 9001
+  port: 9002
