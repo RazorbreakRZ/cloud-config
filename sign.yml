@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: sign-master
+server:
+  port: 9000
