@@ -1,4 +1,6 @@
 spring:
   application:
     name: sign
+server:
+  port: 9001
 message: My name is Sign
