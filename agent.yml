@@ -3,3 +3,4 @@ spring:
     name: agent
 server:
   port: 9002
+message: My name is Agent

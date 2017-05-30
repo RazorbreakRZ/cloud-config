@@ -3,3 +3,4 @@ spring:
     name: test
 server:
   port: 9003
+message: My name is Test
