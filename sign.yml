@@ -6,15 +6,8 @@ message: My name is Sign
 eureka:
   instance:
     preferIpAddress: true
-# Register with Eureka Server
-eureka:
   client:
     registerWithEureka: true
-# Fetch a local copy of the Eureka Server Registry
-eureka:
-  client:
     fetchRegistry: true
-# Comma-separated list of Eureka services
-eureka:
   serviceUrl:
     defaultZone: http://localhost:8761/eureka/
