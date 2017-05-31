@@ -1,6 +1,16 @@
 spring:
   application:
     name: sign
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+      failFast : true
+management:
+  security:
+    enabled: false
+server:
+  port: 9000
 message: My name is Sign
 eureka:
   instance:
