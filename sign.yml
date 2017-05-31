@@ -2,7 +2,6 @@ spring:
   application:
     name: sign
 message: My name is Sign
-
 eureka:
   instance:
     preferIpAddress: true
