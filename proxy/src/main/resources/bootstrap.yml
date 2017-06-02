@@ -1,0 +1,42 @@
+info:
+  component: Zuul server
+
+spring:
+  application:
+    name: proxy
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config
+      failFast: true
+
+management:
+  security:
+    enabled: false
+
+server:
+  address: ${spring.application.name}.vinsign.vintegris.net
+  port: 5555
+  ssl:
+    key-store: C:/server/ftp/certs/${spring.application.name}.vinsign.vintegris.net.jks
+    key-store-password: Vintegris90
+    key-password: Vintegris90
+
+eureka:
+  environment: test
+  datacenter: test
+  instance:
+    hostname: ${server.address}
+    instanceId: ${server.address}:${spring.application.name}:${server.port}
+    securePort: ${server.port}
+    securePortEnabled: true
+    nonSecurePortEnabled: false
+    homePageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/
+    statusPageUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${eureka.instance.securePort}/health
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://discover.vinsign.vintegris.net:8761/eureka/

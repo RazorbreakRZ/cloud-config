@@ -2,5 +2,5 @@ spring:
   application:
     name: sign
 server:
-  port: 9000
+  port: 7777
 message: My name is Sign
