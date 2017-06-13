@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: sign
-server:
-  port: 7777
-message: My name is Sign

@@ -1,0 +1,42 @@
+info:
+  component: Discover service
+  instance: ${server.instanceId}
+
+spring:
+  application:
+    name: discover
+
+server:
+#  address: ${spring.application.name}${server.instanceId}
+  address: 127.0.0.1
+  instanceId: 1
+  port: 876${server.instanceId}
+  protocol: http
+#  ssl:
+#    key-store: ${spring.application.name}${server.instanceId}.jks
+#    key-store-password: MyPassword1
+#    key-password: MyPassword1
+
+management:
+  security:
+    enabled: false
+
+eureka:
+  environment: test
+  datacenter: test
+  instance:
+    hostname: ${server.address}
+    instanceId: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    securePort: ${server.port}
+    securePortEnabled: true
+    nonSecurePortEnabled: false
+    homePageUrl: ${server.protocol}://${eureka.instance.hostname}:${eureka.instance.securePort}/
+    statusPageUrl: ${server.protocol}://${eureka.instance.hostname}:${eureka.instance.securePort}/info
+    healthCheckUrl: ${server.protocol}://${eureka.instance.hostname}:${eureka.instance.securePort}/health
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${server.protocol}://${eureka.instance.hostname}:${eureka.instance.securePort}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
